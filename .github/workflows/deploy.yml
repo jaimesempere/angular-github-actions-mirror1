@@ -34,6 +34,7 @@ jobs:
           rm -rf angular-poc
           cp -f context/package.json ./
           rm -rf context
+          rm package-lock.json
           ls -ltra
       # Install dependencies
       - name: Install deps
