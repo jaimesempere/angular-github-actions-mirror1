@@ -41,10 +41,12 @@ jobs:
       # Route file renaming
       - name: Rename index for routing
         run: mv dist/angular-poc/index.html dist/angular-poc/404.html
+      - name: Rename build folder to angular-github-actions-mirror1
+        run: mv dist/angular-poc dist/angular-github-actions-mirror1
       # Deploy to Github pages
       - name: Deploy to Pages
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
-          build_dir: dist/angular-poc
+          build_dir: dist/angular-poc/angular-github-actions-mirror1
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
