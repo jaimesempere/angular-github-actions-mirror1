@@ -23,10 +23,15 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '22'  # Puedes ajustar la versión que necesites
+          node-version: '18'  # Puedes ajustar la versión que necesites
       # Clonamos el repositorio adicional en la rama main
       - name: Clone Additional Repository
-        run: git clone -b main https://github.com/jaimesempere/angular-github-actions.git .
+        run: git clone -b main https://github.com/jaimesempere/angular-poc.git
+      # Movemos el contenido de la carpeta angular-poc a la raíz y eliminamos la carpeta original
+      - name: Move angular-poc to root
+        run: |
+          mv angular-poc/* .
+          rm -rf angular-poc
       # Install dependencies
       - name: Install deps
         run: npm i
